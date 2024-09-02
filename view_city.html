@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Detalles de Ciudad</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Detalles de Ciudad</h1>
+    <p><strong>ID:</strong> {{ ciudad.id }}</p>
+    <p><strong>Nombre:</strong> {{ ciudad.nombre }}</p>
+    <p><strong>Población:</strong> {{ ciudad.poblacion }}</p>
+    <p><strong>Fecha de Fundación:</strong> {{ ciudad.Fecha_fundacion }}</p>
+    <p><strong>Historia:</strong> {{ ciudad.Historia }}</p>
+    <a href="{{ url_for('index') }}">Volver a la Lista</a>
+</body>
+</html>

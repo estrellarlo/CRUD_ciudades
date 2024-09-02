@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ciudades</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>CRUD Database Ciudades</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Población</th>
+                <th>Fecha de Fundación</th>
+                <th>Historia</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ciudad in ciudades %}
+            <tr>
+                <td>{{ ciudad.id }}</td>
+                <td>{{ ciudad.nombre }}</td>
+                <td>{{ ciudad.poblacion }}</td>
+                <td>{{ ciudad.Fecha_fundacion }}</td>
+                <td>{{ ciudad.Historia }}</td>
+                <td>
+                    <a href="{{ url_for('view_city', id=ciudad.id) }}">
+                        <button class="btn btn-view">Ver Detalles</button>
+                    </a>
+                    <a href="{{ url_for('edit_city', id=ciudad.id) }}">
+                        <button class="btn btn-edit">Actualizar</button>
+                    </a>
+                    <form action="{{ url_for('delete_city', id=ciudad.id) }}" method="post" style="display:inline;" onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta ciudad?');">
+                        <button type="submit" class="btn btn-delete">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('add_city') }}">
+        <button type="button">Añadir Ciudad</button>
+    </a>
+</body>
+</html>

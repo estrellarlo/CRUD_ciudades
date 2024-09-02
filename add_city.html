@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Añadir Ciudad</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Añadir Ciudad</h1>
+    <form method="post">
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id" required><br>
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required><br>
+
+        <label for="poblacion">Población:</label>
+        <input type="number" id="poblacion" name="poblacion" required><br>
+
+        <label for="fecha_fundacion">Fecha de Fundación:</label>
+        <input type="date" id="fecha_fundacion" name="fecha_fundacion" required><br>
+
+        <label for="historia">Historia:</label>
+        <textarea id="historia" name="historia" required></textarea><br>
+
+        <button type="submit">Añadir Ciudad</button>
+    </form>
+    <a href="{{ url_for('index') }}">Volver</a>
+</body>
+</html>
